@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display:=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px;
+  background: #00042E;
+}
+
+.bingo {
+  margin: auto;
+  padding: 20px;
+  width: 1000px;
+  text-align: center;
+  line-height: 1.2;
+  font-family: 'Comic Sans MS', sans-serif;
+  font-size: 18px;
+  background: #FF4C5C;
+  border: 3px solid white;
+  border-radius: 20px;
+}
+
+.bingo__title {
+  padding: 20px 0 40px;
+  font-weight: 700;
+  font-size: 40px;
+  color: white;
+}
+
+.bingo__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-gap: 4px;
+  color: #00042E;
+}
+
+.bingo__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  aspect-ratio: 1/1;
+  background: #F5F3F8;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    background: #FFDDE0
+  }
+
+  &::after, &::before {
+    content: '';
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: #00042E;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &::after {
+    transform: rotateZ(-45deg) scaleY(1.2);
+  }
+
+  &::before {
+    transform: rotateZ(45deg) scaleY(1.2);
+  }
+
+  &._checked::after, &._checked::before {
+    display: block;
+  }
+
+  &._bingo {
+    background: yellow;
+  }
+}
