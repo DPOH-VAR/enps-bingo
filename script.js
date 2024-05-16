@@ -17,6 +17,7 @@ const root = document.querySelector('.bingo__grid');
 const checkBingo = () => {
   const checked = document.querySelectorAll('.bingo__item._checked');
   if (checked.length < N) {
+    document.querySelectorAll('.bingo__item._bingo').forEach(item => item.classList.remove('_bingo'));
     return;
   }
   const iterator = Array.from({ length: N }, () => false);
@@ -46,6 +47,10 @@ const checkBingo = () => {
   if (secondary.length === N) {
     secondary.forEach(item => item?.classList.add('_bingo'));
   }
+
+  document.querySelectorAll('.bingo__item._bingo:not(._checked)').forEach(item => {
+    item.classList.remove('_bingo');
+  });
 }
 
 variants.forEach((variant, index) => {

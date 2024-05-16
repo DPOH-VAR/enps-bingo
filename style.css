@@ -81,3 +81,19 @@ body {
     background: yellow;
   }
 }
+
+@media screen and (max-width: 1024px) {
+  body {
+    padding: 20px 0;
+    margin: 0;
+  }
+
+  .bingo {
+    margin: auto 0;
+    padding: 20px 4px;
+  }
+
+  .bingo__item {
+    padding: 8px;
+  }
+}
